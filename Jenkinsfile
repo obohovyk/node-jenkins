@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             image 'obohovyk/node-jenkins:latest'
-            args '-u jenkins:jenkins'
+            args '-u 0:0'
         }
     }
     stages {
