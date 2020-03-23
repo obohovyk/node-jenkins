@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker { 
-            image 'node:10.15.0'
+            image 'obohovyk/node-jenkins:latest'
             args '-u 0:0'
         }
     }
