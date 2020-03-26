@@ -5,6 +5,8 @@ def notifyBuild(String buildStatus) {
     def summary = "${buildStatus}: '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
 }
 
+List servers = ['10.133.103.129']
+
 pipeline {
     agent any
 
@@ -12,7 +14,6 @@ pipeline {
         CHAT_URL = 'https://api.chat.vezio.company/integration/jenkins'
         APP_PORT = 8051
         APP_NAME = 'demo3'
-        List SERVERS = ['10.133.103.129']
     }
     options {
         buildDiscarder(logRotator(artifactDaysToKeepStr: '1', artifactNumToKeepStr: '1', daysToKeepStr: '5', numToKeepStr: '10'))
