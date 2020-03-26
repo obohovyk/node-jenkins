@@ -27,8 +27,8 @@ pipeline {
                 }
             }
             environment {
-                APP_NAME = $(basename "${env.GIT_URL}" ".${url##*.}")
-                // APP_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
+                //APP_NAME = $(basename "${env.GIT_URL}" ".${url##*.}")
+                APP_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, "$1")}"
             }
             steps {
                 sh('npm install')
