@@ -12,7 +12,7 @@ pipeline {
         CHAT_URL = 'https://api.chat.vezio.company/integration/jenkins'
         APP_PORT = 8051
         APP_NAME = 'demo3'
-        SERVERS = ['10.133.103.129']
+        List SERVERS = ['10.133.103.129']
     }
     options {
         buildDiscarder(logRotator(artifactDaysToKeepStr: '1', artifactNumToKeepStr: '1', daysToKeepStr: '5', numToKeepStr: '10'))
