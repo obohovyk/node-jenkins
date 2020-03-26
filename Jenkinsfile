@@ -35,13 +35,13 @@ pipeline {
                 sh("echo ${env.APP_NAME}")
 
                 stash includes: "build.tar.gz", name: 'artifact'
+                archiveArtifacts artifacts: "build.tar.gz", fingerprint: true
             }
         }
     }
     post {
         success {
             sh "echo Pipeline completed successfully."
-            archiveArtifacts artifacts: "build.tar.gz", fingerprint: true
         }
         failure {
             echo "Build stage failed."
