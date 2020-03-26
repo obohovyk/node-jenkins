@@ -42,7 +42,7 @@ pipeline {
     post {
         success {
             sh "echo Pipeline completed successfully."
-            archiveArtifacts artifacts: '*.tar.gz', fingerprint: true
+            archiveArtifacts artifacts: 'build.tar.gz', fingerprint: true
         }
         failure {
             sh "echo Pipeline failed."
