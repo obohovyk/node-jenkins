@@ -30,13 +30,11 @@ pipeline {
                 APP_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
             }
             steps {
-                dir('source') {
-                    sh('npm install')
-                    sh('tar cvzf build.ta.gz node_modules/')
-                    sh("echo ${APP_NAME}")
+                sh('npm install')
+                sh('tar cvzf build.ta.gz node_modules/')
+                sh("echo ${APP_NAME}")
 
-                    stash includes: 'build.tar.gz', name: 'artifact'
-                }
+                stash includes: 'build.tar.gz', name: 'artifact'
             }
         }
     }
