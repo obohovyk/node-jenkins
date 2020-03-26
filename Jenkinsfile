@@ -31,7 +31,7 @@ pipeline {
                 APP_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
             }
             steps {
-                sh("echo $(basename "${env.GIT_URL}" ".${url##*.}")")
+                sh "echo $(basename "${env.GIT_URL}" ".${url##*.}")"
 
                 sh('npm install')
                 sh('tar cvzf build.tar.gz node_modules/')
