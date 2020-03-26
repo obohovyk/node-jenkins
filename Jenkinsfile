@@ -27,25 +27,24 @@ pipeline {
                 }
             }
             environment {
-                //APP_NAME = $(basename "${env.GIT_URL}" ".${url##*.}")
                 APP_NAME = "${env.GIT_URL.replaceFirst(/^.*\/([^\/]+?).git$/, '$1')}"
             }
             steps {
                 sh('npm install')
-                sh('tar cvzf build.tar.gz node_modules/')
-                sh("echo ${APP_NAME}")
+                sh("tar cvzf build.tar.gz node_modules/")
+                sh("echo ${env.APP_NAME}")
 
-                stash includes: 'build.tar.gz', name: 'artifact'
+                stash includes: "build.tar.gz", name: 'artifact'
             }
         }
     }
     post {
         success {
             sh "echo Pipeline completed successfully."
-            archiveArtifacts artifacts: 'build.tar.gz', fingerprint: true
+            archiveArtifacts artifacts: "build.tar.gz", fingerprint: true
         }
         failure {
-            sh "echo Pipeline failed."
+            echo "Build stage failed."
         }
     }
 }
