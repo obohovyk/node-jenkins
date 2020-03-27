@@ -23,7 +23,7 @@ pipeline {
             agent {
                 docker {
                     image 'obohovyk/node-jenkins:latest'
-                    args '-u 0:0'
+                    args '-u jenkins'
                 }
             }
             environment {
