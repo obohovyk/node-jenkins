@@ -11,7 +11,7 @@ pipeline {
     agent any
 
     environment {
-        CHAT_URL = 'https://api.chat.vezio.company/integration/jenkins'
+        CHAT_URL = 'https://example.com/integration/jenkins'
         APP_PORT = 8051
         APP_NAME = 'demo3'
     }
